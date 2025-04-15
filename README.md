@@ -1,2 +1,4 @@
 # Carpet_Script_Player_List_Extra
 基于carpet脚本的扩展版玩家列表，可显示玩家、假人，把自己变成假人的玩家，可以与MCDR插件联动用于检测假人
+
+请将脚本放在server\world\scripts下，并确保carpet配置里自动加载脚本为true，重启服务器或者手动load script即可
