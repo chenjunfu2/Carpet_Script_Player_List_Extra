@@ -3,8 +3,10 @@
 
 请将脚本放在server\world\scripts下，并确保carpet配置里自动加载脚本为true，重启服务器或者手动load script即可
 
-使用：
-命令：player_type_list list
+**使用：**
+
+命令：/player_type_list list
+
 响应：与原版命令list相同，但是玩家名有特殊处理
 - 如果是假人玩家，则会带上@fake后缀
 - 如果是shadow玩家，则会带上@shadow后缀
