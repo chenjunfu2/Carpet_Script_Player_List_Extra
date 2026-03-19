@@ -24,8 +24,9 @@ list() ->
 
 	//构建玩家列表字符串
 	map_players = 
-	if(
-		player_count > 0,
+	if
+	(
+		player_count > 0,//if conditional
 			join(', ', map(players, player_name_cvrt(_))),//有玩家在线，转换每个玩家的名字
 		//else
 			'' //返回空字符串
