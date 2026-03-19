@@ -16,24 +16,23 @@ list() ->
 		);
 	);
 
-	//运行服务端list命令，取出服务端命令输出
-	parts = run('list'):1;
-	//输出转换为字符串去掉列表方括号，以冒号分割左右两端，左端是玩家个数信息
-	//右端是玩家列表
-	parts = split(': ', replace(str(parts), '[\\[\\]]', ''));
+	//获取所有在线玩家
+	players = player('all');
+	
+	//获取玩家数量
+	player_count = length(players);
 
-	//右端字符串转为列表后通过map将每个名字映射到对应的玩家类型
-	map_players =
-	if
-	(
-		has(parts,1),//判断有没有玩家列表
-			join(', ', map(split(', ', parts:1), player_name_cvrt(_))),//返回转换后的玩家列表字符串
+	//构建玩家列表字符串
+	map_players = 
+	if(
+		player_count > 0,
+			join(', ', map(players, player_name_cvrt(_))),//有玩家在线，转换每个玩家的名字
 		//else
-			''//没有玩家的情况，直接返回空字符串
+			'' //返回空字符串
 	);
 
-	//返回值模拟服务端输出list
-	return (str('%s: %s', str(parts:0), map_players));
+	//返回格式化的字符串，模拟原版list输出格式
+	return (str('There are %d of a max of players online: %s', player_count, map_players));
 );
 
 //注册命令
