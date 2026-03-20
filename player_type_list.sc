@@ -22,6 +22,9 @@ list() ->
 	//获取玩家数量
 	player_count = length(players);
 
+	//获取最大玩家数量
+	max_players = system_info('game_max_players');
+
 	//构建玩家列表字符串
 	map_players = 
 	if
@@ -33,7 +36,7 @@ list() ->
 	);
 
 	//返回格式化的字符串，模拟原版list输出格式
-	return (str('There are %d of a max of players online: %s', player_count, map_players));
+	return (str('There are %d of a max of %d players online: %s', player_count, max_players, map_players));
 );
 
 //注册命令
